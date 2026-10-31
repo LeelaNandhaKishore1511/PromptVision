@@ -12,6 +12,13 @@ class TestAPIEndpoints(unittest.TestCase):
     def setUpClass(cls):
         cls.client = TestClient(app)
 
+    def test_root_endpoint(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["status"], "online")
+        self.assertIn("docs_url", data)
+
     def test_health_endpoint(self):
         response = self.client.get("/api/health")
         self.assertEqual(response.status_code, 200)

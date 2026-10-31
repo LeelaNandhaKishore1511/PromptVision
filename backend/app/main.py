@@ -64,6 +64,29 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ----------------- ROOT & API DISCOVERY -----------------
+
+@app.get("/")
+async def root():
+    return {
+        "name": "PromptVision API",
+        "description": "An Option-Driven Automated Prompt Engineering and Computer Vision Analysis Framework",
+        "status": "online",
+        "version": "1.0.0",
+        "docs_url": "/docs",
+        "redoc_url": "/redoc",
+        "health_check": "/api/health",
+        "endpoints": {
+            "health": "/api/health",
+            "models": "/api/models",
+            "upload_image": "/api/image/upload",
+            "cv_process": "/api/cv/process",
+            "prompt_generate": "/api/prompt/generate",
+            "experiments": "/api/experiments",
+            "teach_generate": "/api/teach/generate"
+        }
+    }
+
 # ----------------- HEALTH & MODEL MANAGER -----------------
 
 @app.get("/api/health")
