@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use PromptVision in your research, thesis, or educational work, please cite it as below."
+authors:
+  - family-names: "Kishore"
+    given-names: "Leela Nandha"
+title: "PromptVision: An Option-Driven Automated Prompt Engineering and Computer Vision Analysis Framework"
+version: 1.0.0
+date-released: 2026-10-31
+repository-code: "https://github.com/LeelaNandhaKishore1511/PromptVision.git"
+keywords:
+  - "Computer Vision"
+  - "Multimodal AI"
+  - "Automated Prompt Engineering"
+  - "Vision-Language Models"
+  - "CO-STAR Framework"
+  - "Local Inference"
+  - "Ollama"
+  - "B.Tech Final Year Project"
+license: "MIT"
