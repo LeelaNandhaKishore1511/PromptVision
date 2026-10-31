@@ -28,7 +28,7 @@ import {
   CheckCircle2,
   HelpCircle
 } from 'lucide-react';
-import { getResearchSummary, getExperiments } from '../services/api';
+import { getResearchSummary, getExperiments, getFullImageUrl } from '../services/api';
 
 const RADAR_DIMENSIONS = [
   { dimension: 'Accuracy', basic: 3.8, costar: 4.4, ai_optimized: 4.9 },
@@ -93,7 +93,7 @@ export default function Research() {
         </div>
 
         <a 
-          href="/api/experiments/export" 
+          href={getFullImageUrl('/api/experiments/export')} 
           download
           className="btn-primary"
           style={{ textDecoration: 'none', fontSize: '0.82rem' }}

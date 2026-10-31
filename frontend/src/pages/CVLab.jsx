@@ -10,7 +10,7 @@ import {
   Info,
   Maximize2
 } from 'lucide-react';
-import { getCVOperations, processCV, uploadImage } from '../services/api';
+import { getCVOperations, processCV, uploadImage, getFullImageUrl } from '../services/api';
 
 export default function CVLab() {
   const [catalog, setCatalog] = useState(null);
@@ -322,7 +322,7 @@ export default function CVLab() {
                     </span>
                   </div>
                   <img 
-                    src={primaryImage.url} 
+                    src={getFullImageUrl(primaryImage.url)} 
                     alt="Original" 
                     style={{ width: '100%', height: '280px', objectFit: 'contain', background: '#000', borderRadius: '4px' }}
                   />
@@ -345,7 +345,7 @@ export default function CVLab() {
                     </div>
                   ) : result && result.processed_image_url ? (
                     <img 
-                      src={result.processed_image_url} 
+                      src={getFullImageUrl(result.processed_image_url)} 
                       alt="Processed" 
                       style={{ width: '100%', height: '280px', objectFit: 'contain', background: '#000', borderRadius: '4px' }}
                     />

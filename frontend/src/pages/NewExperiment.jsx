@@ -20,7 +20,8 @@ import {
   getCVOperations, 
   processCV, 
   generatePrompts, 
-  runExperiment 
+  runExperiment,
+  getFullImageUrl 
 } from '../services/api';
 
 const OBJECTIVES = [
@@ -264,7 +265,7 @@ export default function NewExperiment({ onNavigate, currentModel, onExperimentCo
             ) : imageMeta ? (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px' }}>
                 <img 
-                  src={imageMeta.url} 
+                  src={getFullImageUrl(imageMeta.url)} 
                   alt="Uploaded preview" 
                   style={{ maxHeight: '200px', maxWidth: '300px', borderRadius: '8px', objectFit: 'contain', border: '1px solid var(--border-color)' }}
                 />
@@ -451,7 +452,7 @@ export default function NewExperiment({ onNavigate, currentModel, onExperimentCo
                   <div key={i} style={{ background: 'var(--bg-main)', borderRadius: '6px', padding: '10px', border: '1px solid var(--border-color)' }}>
                     {r.processed_image_url && (
                       <img 
-                        src={r.processed_image_url} 
+                        src={getFullImageUrl(r.processed_image_url)} 
                         alt={r.operation_name}
                         style={{ width: '100%', height: '120px', objectFit: 'cover', borderRadius: '4px', marginBottom: '8px' }}
                       />

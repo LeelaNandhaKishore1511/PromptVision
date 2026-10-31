@@ -12,7 +12,7 @@ import {
   AlertTriangle,
   RotateCcw
 } from 'lucide-react';
-import { uploadImage, generateTeachLesson, evaluateTeachQuiz } from '../services/api';
+import { uploadImage, generateTeachLesson, evaluateTeachQuiz, getFullImageUrl } from '../services/api';
 
 export default function TeachMode() {
   const [image, setImage] = useState(null);
@@ -131,7 +131,7 @@ export default function TeachMode() {
                 <Loader2 size={24} className="spin" color="var(--accent-purple)" style={{ margin: '0 auto' }} />
               ) : image ? (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-                  <img src={image.url} alt="Uploaded" style={{ height: '80px', borderRadius: '6px', objectFit: 'contain' }} />
+                  <img src={getFullImageUrl(image.url)} alt="Uploaded" style={{ height: '80px', borderRadius: '6px', objectFit: 'contain' }} />
                   <div style={{ textAlign: 'left' }}>
                     <strong style={{ fontSize: '0.9rem' }}>{image.filename}</strong>
                     <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>{image.width}x{image.height} px</p>

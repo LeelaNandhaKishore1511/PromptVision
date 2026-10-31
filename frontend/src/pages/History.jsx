@@ -11,7 +11,7 @@ import {
   Cpu,
   Eye
 } from 'lucide-react';
-import { getExperiments, deleteExperiment } from '../services/api';
+import { getExperiments, deleteExperiment, getFullImageUrl } from '../services/api';
 
 export default function History({ onSelectExperiment, onNavigate }) {
   const [experiments, setExperiments] = useState([]);
@@ -79,7 +79,7 @@ export default function History({ onSelectExperiment, onNavigate }) {
             />
           </div>
           <a
-            href="/api/experiments/export"
+            href={getFullImageUrl('/api/experiments/export')}
             download
             className="btn-secondary"
             style={{ textDecoration: 'none', fontSize: '0.82rem', padding: '8px 14px' }}
